@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary  = 'A delightful iOS and OS X networking framework.'
   s.homepage = 'https://github.com/AFNetworking/AFNetworking'
   s.authors  = { 'Mattt Thompson' => 'm@mattt.me' }
-  s.source   = { :git => 'https://github.com/axiomzen/AFNetworking.git', :commit => "00197b608a0efd56f19bf7fb8ac63d659d849aac", :submodules => true }
+  s.source   = { :git => 'https://github.com/axiomzen/AFNetworking.git', :commit => "9fa8b82c3051c486bf72055da7a8a18f7b3d3b97", :submodules => true }
   s.requires_arc = true
 
   s.ios.deployment_target = '6.0'
