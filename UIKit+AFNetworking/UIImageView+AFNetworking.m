@@ -133,7 +133,7 @@ static char kAFResponseSerializerKey;
     if(useActivityIndicator) {
         [self setImageWithURL:url fallbackImage:fallbackImage activityIndicatorView:[self defaultActivityView]];
     } else {
-        [self setImageWithURL:ulr placeholderImage:fallbackImage];
+        [self setImageWithURL:url placeholderImage:fallbackImage];
     }
 }
     
@@ -212,6 +212,7 @@ static char kAFResponseSerializerKey;
                 if (failure) {
                     failure(urlRequest, operation.response, error);
                 } else {
+                    __strong __typeof(weakSelf)strongSelf = weakSelf;
                     [UIImageView animateSetImage:strongSelf newImage:fallbackImage activityIndicatorView:activityIndicatorView];
                 }
             }
