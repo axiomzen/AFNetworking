@@ -74,6 +74,28 @@
 - (void)setImageWithURL:(NSURL *)url
        placeholderImage:(UIImage *)placeholderImage;
 
+//============ axiomzen ============
+-(UIActivityIndicatorView*)defaultActivityView;
+    
+// if activity, uses a default activity view (transparent background, grey spinner)
+// otherwise, same as calling setimagewithurl
+-(void)setImageWithURL:(NSURL *)url useActivityIndicator:(BOOL)activity;
+
+// if activity = NO, then this is same as [setimagewithurl placeholderImage]
+-(void)setImageWithURL:(NSURL *)url fallbackImage:(UIImage*)fallbackImage useActivityIndicator:(BOOL)useActivityIndicator;
+
+// uses the activity indicator that you send in as the placeholderview, then fallback image if it fails to download
+-(void)setImageWithURL:(NSURL *)url fallbackImage:(UIImage*)fallbackImage activityIndicatorView:(UIActivityIndicatorView *)activityIndicatorView;
+// uses the activity indicator that you send in as the placeholderview, then fallback image if it fails to download
+// allows you to intercept the succes and failure blocks
+- (void)setImageWithURLRequest:(NSURLRequest *)urlRequest
+              fallbackImage:(UIImage *)placeholderImage
+         activityIndicatorView:(UIActivityIndicatorView *)activityIndicatorView
+                       success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
+                       failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure;
+
+//============ axiomzen ============
+    
 /**
  Asynchronously downloads an image from the specified URL request, and sets it once the request is finished. Any previous image request for the receiver will be cancelled. 
  
